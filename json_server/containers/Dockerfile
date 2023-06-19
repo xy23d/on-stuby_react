@@ -8,7 +8,7 @@ WORKDIR /app
 RUN npm install -g json-server
 
 # ホストからコンテナへデータをコピー
-# COPY db.json ./db.json
+COPY ../db.json ./db.json
 
 # ポートの公開
 EXPOSE 3000
