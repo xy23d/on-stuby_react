@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+    build:
+      context: containers/json_server
+    ports:
+      - "8032:3000"
+    volumes:
+      - ./json_server:/app
+    tty:
+      true
+  spa:
+    build:
+      context: containers/spa
+    ports:
+      - "8031:3000"
+    volumes:
+      - ./spa:/app
