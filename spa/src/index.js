@@ -11,6 +11,7 @@ import {
 
 import { Articles } from './pages/Articles';
 import { Article } from './pages/Article'
+import { ArticlesProvider } from './contexts/Articles';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,11 +20,13 @@ root.render(
       <Link to="/articles">Articles</Link>
     </li>
 
-    <Routes>
-      <Route element={<Articles />} path="/" />
-      <Route element={<Articles />} path="/articles" />
-      <Route element={<Article />} path="/articles/:id" />
-    </Routes>
+    <ArticlesProvider>
+      <Routes>
+          <Route element={<Articles />} path="/" />
+          <Route element={<Articles />} path="/articles" />
+          <Route element={<Article />} path="/articles/:id" />
+      </Routes>
+    </ArticlesProvider>
   </Router>
 );
 
