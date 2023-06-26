@@ -22,7 +22,7 @@ function App() {
   return (
     <ReduxProvider store={store}>
       <Router>
-        <li class="text-3xl">
+        <li className="text-3xl">
           <Link to="/articles">Articles</Link>
         </li>
 
