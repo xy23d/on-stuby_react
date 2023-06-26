@@ -51,8 +51,6 @@ export const Article = (props) => {
   }, [articles, id, setArticles]);
 
   return (
-    <>
-      <ArticleComponent article={article}/>
-    </>
+    <ArticleComponent article={article}/>
   );
 }
