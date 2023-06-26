@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 // import logo from './logo.svg';
-import { Article as  ArticleComponent } from '../components/articles/Article';
 import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+
+import { Article as  ArticleComponent } from '../components/articles/Article';
+import ArticlesService from '../services/ArticlesService'
 import actions from '../stores/history/actions'
 
 export const Articles = (props) => {
@@ -19,28 +21,26 @@ export const Articles = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await fetch('http://localhost:8032/articles')
-        .then((response) => response.json())
-        .then((data) => setArticles(data));
+        const articles = await ArticlesService.get()
+        setArticles(articles)
       } catch (error) {
-        console.error('Failed to fetch data:', error);
+        console.error(`Error: ${error}`);
       }
     };
 
     fetchData();
   }, []);
 
-
   return (
     <>
-    {
-      articles.map((article) => {
-        return <ArticleComponent
-          key={article.id}
-          id={article.id}
-          title={article.title} />
-      })
-    }
-</>
+      {
+        articles.map((article) => {
+          return <ArticleComponent
+            key={article.id}
+            id={article.id}
+            title={article.title} />
+        })
+      }
+    </>
   );
 }

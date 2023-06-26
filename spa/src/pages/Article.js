@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import actions from '../stores/history/actions'
 
 import { Article as ArticleComponent } from "../components/Article"
+import ArticlesService from '../services/ArticlesService'
 
 export const Article = (props) => {
   const { id } = useParams();
@@ -32,18 +33,16 @@ export const Article = (props) => {
     } else {
       const fetchData = async () => {
         try {
-          await fetch( `http://localhost:8032/articles/${id}`)
-          .then((response) => response.json())
-          .then((data) => {
-            setArticle(data)
+          const article = await ArticlesService.show(id)
 
-            setArticles(prevArticles => ({
-              ...prevArticles,
-              [id]: data,
-            }));
-          });
-        } catch (error) {
-          console.error('Failed to fetch data:', error);
+          setArticle(article)
+
+          setArticles(prevArticles => ({
+            ...prevArticles,
+            [id]: article,
+          }));
+        } catch(error) {
+          console.error(`Error: ${error}`);
         }
       };
 
