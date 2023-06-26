@@ -1,14 +1,10 @@
 import { ADD } from './actionTypes';
 
-const add = (url) => {
+const addHistory = (url) => {
   return {
     type: ADD,
     payload: url,
   };
 };
 
-const actions = {
-  add
-}
-
-export default actions
+export default addHistory

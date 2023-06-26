@@ -5,7 +5,7 @@ import { ArticlesContext } from "../contexts/Articles";
 
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import actions from '../stores/history/actions'
+import addHistory from '../stores/history/actions'
 
 import { Article as ArticleComponent } from "../components/Article"
 import ArticlesService from '../services/ArticlesService'
@@ -22,7 +22,7 @@ export const Article = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(actions.add(location.pathname));
+    dispatch(addHistory(location.pathname));
   }, []);
 
   useSelector(state => console.log(state.historyReducer.histories));

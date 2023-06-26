@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { Article as  ArticleComponent } from '../components/articles/Article';
 import ArticlesService from '../services/ArticlesService'
-import actions from '../stores/history/actions'
+import addHistory from '../stores/history/actions'
 
 export const Articles = (props) => {
   const location = useLocation();
@@ -15,7 +15,7 @@ export const Articles = (props) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    dispatch(actions.add(location.pathname));
+    dispatch(addHistory(location.pathname));
   }, []);
 
   useEffect(() => {
