@@ -16,7 +16,7 @@ export const Articles = (props) => {
 
   useEffect(() => {
     dispatch(actions.add(location.pathname));
-  }, [dispatch, location]);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -23,7 +23,7 @@ export const Article = (props) => {
 
   useEffect(() => {
     dispatch(actions.add(location.pathname));
-  }, [dispatch, location]);
+  }, []);
 
   useSelector(state => console.log(state.historyReducer.histories));
 
@@ -48,7 +48,7 @@ export const Article = (props) => {
 
       fetchData();
     }
-  }, [articles, id, setArticles]);
+  }, []);
 
   return (
     <ArticleComponent article={article}/>
