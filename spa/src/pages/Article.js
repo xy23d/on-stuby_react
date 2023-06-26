@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../stores/history/actions'
 
-import { Article as ArticlesComponent } from "../components/Article"
+import { Article as ArticleComponent } from "../components/Article"
 
 export const Article = (props) => {
   const { id } = useParams();
@@ -55,7 +55,7 @@ export const Article = (props) => {
 
   return (
     <>
-      <ArticlesComponent article={article}/>
+      <ArticleComponent article={article}/>
     </>
   );
 }
