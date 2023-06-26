@@ -1,13 +1,11 @@
 import React from "react";
 
-export const Article = (props) => {
-  const {article} = props
-
+export const Article = ({article}) => {
   return (
     <>
-      <div>{article.id}</div>
-      <div>{article.title}</div>
-      <div>{article.score}</div>
+      <div className="text-2xl">{article.id}</div>
+      <div className="text-2xl">{article.title}</div>
+      <div className="text-2xl">{article.score}</div>
     </>
   );
 }

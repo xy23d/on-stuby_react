@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Article = (props) => {
+export const Article = ({id, title}) => {
   return (
     <>
-        <Link to={"/articles/" + props.id}>{props.title}</Link>
+        <Link className="text-blue-500" to={`/articles/${id}`}>{title}</Link>
         <br />
     </>
   );
