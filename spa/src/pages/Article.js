@@ -50,8 +50,6 @@ export const Article = (props) => {
     }
   }, [articles, id, setArticles]);
 
-  if (article == null) return null;
-
   return (
     <>
       <ArticleComponent article={article}/>
