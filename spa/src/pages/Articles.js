@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import logo from './logo.svg';
 import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
@@ -33,14 +32,26 @@ export const Articles = (props) => {
 
   return (
     <>
-      {
-        articles.map((article) => {
-          return <ArticleComponent
-            key={article.id}
-            id={article.id}
-            title={article.title} />
-        })
-      }
+      <main>
+        <h2 className="font-bold mx-auto text-center text-2xl">Articles</h2>
+
+        <div className="w-full mt-6 px-16">
+          <div className="flex flex-wrap">
+            {
+              articles.map((article) => {
+                return (
+                  <div className="w-1/3 p-3">
+                    <ArticleComponent
+                      key={article.id}
+                      id={article.id}
+                      title={article.title} />
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+      </main>
     </>
   );
 }
