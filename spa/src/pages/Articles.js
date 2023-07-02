@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-// import logo from './logo.svg';
 import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 import { Article as  ArticleComponent } from '../components/articles/Article';
+import PageTitle from '../components/common/PageTitle'
 import ArticlesService from '../services/ArticlesService'
 import addHistory from '../stores/history/actions'
 
@@ -33,14 +33,26 @@ export const Articles = (props) => {
 
   return (
     <>
-      {
-        articles.map((article) => {
-          return <ArticleComponent
-            key={article.id}
-            id={article.id}
-            title={article.title} />
-        })
-      }
+      <main>
+        <PageTitle page_title="Articles"></PageTitle>
+
+        <div className="w-full mt-6 px-16">
+          <div className="flex flex-wrap">
+            {
+              articles.map((article) => {
+                return (
+                  <div className="w-1/3 p-3">
+                    <ArticleComponent
+                      key={article.id}
+                      id={article.id}
+                      title={article.title} />
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+      </main>
     </>
   );
 }

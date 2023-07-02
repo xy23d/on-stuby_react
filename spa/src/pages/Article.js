@@ -51,6 +51,12 @@ export const Article = (props) => {
   }, []);
 
   return (
-    <ArticleComponent article={article}/>
+    article ?
+    <main>
+      <div className="w-full mt-6 px-16">
+        <ArticleComponent article={article}/>
+      </div>
+    </main>
+    : null
   );
 }

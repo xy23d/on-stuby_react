@@ -11,9 +11,9 @@ import {
 
 import { Provider as ReduxProvider } from 'react-redux';
 
+import { ArticlesProvider } from './contexts/Articles';
 import { Articles } from './pages/Articles';
 import { Article } from './pages/Article'
-import { ArticlesProvider } from './contexts/Articles';
 import store from './stores/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,9 +22,18 @@ function App() {
   return (
     <ReduxProvider store={store}>
       <Router>
-        <li className="text-3xl">
-          <Link to="/articles">Articles</Link>
-        </li>
+        <header className="bg-white">
+          <nav className="flex items-center justify-center px-8 py-6">
+            <div className="flex gap-x-12 items-center justify-center">
+              <div className="relative">
+                <Link className="text-sm font-semibold leading-6 text-gray-900" to="/articles">Articles</Link>
+              </div>
+              <div className="relative">
+                <Link className="text-sm font-semibold leading-6 text-gray-900" to="/articles">Test</Link>
+              </div>
+            </div>
+          </nav>
+        </header>
 
         <ArticlesProvider>
           <Routes>
