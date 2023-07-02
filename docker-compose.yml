@@ -12,8 +12,10 @@ services:
     build:
       context: .
       dockerfile: spa/containers/Dockerfile
+    environment:
+      - WDS_SOCKET_PORT=${SPA_PORT:-8031}
     ports:
-      - "8031:3000"
+      - ${SPA_PORT:-8031}:3000
     volumes:
       - ./spa:/app
       - /app/node_modules
