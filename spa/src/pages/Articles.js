@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 import { Article as  ArticleComponent } from '../components/articles/Article';
+import PageTitle from '../components/common/PageTitle'
 import ArticlesService from '../services/ArticlesService'
 import addHistory from '../stores/history/actions'
 
@@ -33,7 +34,7 @@ export const Articles = (props) => {
   return (
     <>
       <main>
-        <h2 className="font-bold mx-auto text-center text-2xl">Articles</h2>
+        <PageTitle page_title="Articles"></PageTitle>
 
         <div className="w-full mt-6 px-16">
           <div className="flex flex-wrap">
