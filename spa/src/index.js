@@ -11,8 +11,6 @@ import {
 
 import { Provider as ReduxProvider } from 'react-redux';
 
-import logo from './logo.svg';
-
 import { ArticlesProvider } from './contexts/Articles';
 import { Articles } from './pages/Articles';
 import { Article } from './pages/Article'
@@ -25,14 +23,8 @@ function App() {
     <ReduxProvider store={store}>
       <Router>
         <header className="bg-white">
-          <nav className="mx-auto flex max-w-7xl items-center p-6 px-8">
-            <div className="flex flex-1">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">xy2</span>
-                <img className="h-8 w-auto" src={logo} alt="Logo" />
-              </a>
-            </div>
-            <div className="flex gap-x-12">
+          <nav className="flex items-center justify-center px-8 py-6">
+            <div className="flex gap-x-12 items-center justify-center">
               <div className="relative">
                 <Link className="text-sm font-semibold leading-6 text-gray-900" to="/articles">Articles</Link>
               </div>
@@ -40,7 +32,6 @@ function App() {
                 <Link className="text-sm font-semibold leading-6 text-gray-900" to="/articles">Test</Link>
               </div>
             </div>
-            <div className="flex flex-1"></div>
           </nav>
         </header>
 
