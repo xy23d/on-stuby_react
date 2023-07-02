@@ -1,12 +1,16 @@
-# React.js 勉強用
+# On Stuby React.js
 
-## 開発環境
-- spa : react-scripts
-  - アプリケーションサーバー(SPA)
-  - localhost:8031
-- api : json_server
-  - APIモックサーバー
-  - localhost:8032
+Blog Web Application for learning purposes using React.js.
+
+## Development Environment
+- SPA : react-scripts
+  - Application Server
+  - port
+    - 8031
+- API : json_server
+  - API Mock Server
+  - port
+    - 8032
 
 ## build
 ```shell
