@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: json_server/containers/Dockerfile
     ports:
-      - "8032:3000"
+      - "${API_PORT-:8032}:3000"
     volumes:
       - ./json_server:/app
   spa:
