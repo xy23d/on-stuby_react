@@ -10,7 +10,7 @@ import addHistory from '../stores/history/actions'
 import { Article as ArticleComponent } from "../components/Article"
 import ArticlesService from '../services/ArticlesService'
 
-export const Article = (props) => {
+const Article = (props) => {
   const { id } = useParams();
 
   const [article, setArticle] = useState(null)
@@ -60,3 +60,5 @@ export const Article = (props) => {
     : null
   );
 }
+
+export default Article

@@ -7,7 +7,7 @@ import PageTitle from '../components/common/PageTitle'
 import ArticlesService from '../services/ArticlesService'
 import addHistory from '../stores/history/actions'
 
-export const Articles = (props) => {
+const Articles = (props) => {
   const location = useLocation();
 
   const dispatch = useDispatch();
@@ -56,3 +56,5 @@ export const Articles = (props) => {
     </>
   );
 }
+
+export default Articles

@@ -12,8 +12,8 @@ import {
 import { Provider as ReduxProvider } from 'react-redux';
 
 import { ArticlesProvider } from './contexts/Articles';
-import { Articles } from './pages/Articles';
-import { Article } from './pages/Article'
+import Articles from './pages/Articles';
+import Article from './pages/Article'
 import store from './stores/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
