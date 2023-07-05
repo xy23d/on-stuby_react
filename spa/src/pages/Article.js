@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import addHistory from '../stores/history/actions'
 
-import { Article as ArticleComponent } from "../components/Article"
+import * as ArticleComponent from "../components/Article"
 import ArticlesService from '../services/ArticlesService'
 
 const Article = (props) => {
