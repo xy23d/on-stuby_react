@@ -8,10 +8,10 @@ describe('pages/NotFound.js', () => {
   test('render', () => {
     render(<NotFound />);
 
-    const div = screen.getAllByRole('generic')[1];
-    expect(div).toHaveClass('w-full px-16');
+    const div_1 = screen.getByTestId('div_1');
+    expect(div_1).toHaveClass('w-full px-16');
 
-    const p = within(div).getByRole('paragraph');
+    const p = within(div_1).getByRole('paragraph');
 
     expect(p).toHaveClass('text-center')
     expect(p).toHaveTextContent('The page you are looking for does not exist.');
