@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
 
 import { useContext } from "react";
