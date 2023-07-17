@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
-import { Article as  ArticleComponent } from '../components/articles/Article';
+import ArticleComponent from '../components/articles/Article';
 import PageTitle from '../components/common/PageTitle'
 import ArticlesService from '../services/ArticlesService'
 import addHistory from '../stores/history/actions'

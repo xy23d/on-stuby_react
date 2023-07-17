@@ -1,19 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
-import { ArticlesContext } from "../contexts/Articles";
-// import logo from './logo.svg';
-
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import addHistory from '../stores/history/actions'
 
-import { Article as ArticleComponent } from "../components/Article"
+import { ArticlesContext } from "../contexts/Articles";
+import ArticleComponent from "../components/Article"
 import ArticlesService from '../services/ArticlesService'
+import addHistory from '../stores/history/actions'
 
 const Article = (props) => {
   const { id } = useParams();
 
-  const [article, setArticle] = useState(null)
+  const [article, setArticle] = useState(null);
 
   const { articles, setArticles } = useContext(ArticlesContext);
 
@@ -33,9 +30,9 @@ const Article = (props) => {
     } else {
       const fetchData = async () => {
         try {
-          const article = await ArticlesService.show(id)
+          const article = await ArticlesService.show(id);
 
-          setArticle(article)
+          setArticle(article);
 
           setArticles(prevArticles => ({
             ...prevArticles,
@@ -53,7 +50,7 @@ const Article = (props) => {
   return (
     article ?
     <main>
-      <div className="w-full mt-6 px-16">
+      <div className="w-full mt-6 px-16" data-testid="debug">
         <ArticleComponent article={article}/>
       </div>
     </main>
