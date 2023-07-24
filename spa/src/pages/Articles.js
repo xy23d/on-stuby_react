@@ -41,9 +41,8 @@ const Articles = (props) => {
             {
               articles.map((article) => {
                 return (
-                  <div className="w-1/3 p-3">
+                  <div key={article.id} className="w-1/3 p-3">
                     <ArticleComponent
-                      key={article.id}
                       id={article.id}
                       title={article.title} />
                   </div>

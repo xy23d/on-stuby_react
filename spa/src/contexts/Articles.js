@@ -1,8 +1,10 @@
-import { useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 
-export const ArticlesContext = createContext();
+import PropTypes from 'prop-types';
 
-export const ArticlesProvider = ({children}) => {
+const ArticlesContext = createContext();
+
+const ArticlesProvider = ({children}) => {
   const [articles, setArticles] = useState({})
 
   return (
@@ -11,3 +13,9 @@ export const ArticlesProvider = ({children}) => {
     </ArticlesContext.Provider>
   );
 }
+
+ArticlesProvider.propTypes = {
+  children: PropTypes.any.isRequired,
+}
+
+export default { ArticlesContext, ArticlesProvider }

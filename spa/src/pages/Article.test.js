@@ -1,7 +1,7 @@
 import { act, render } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
 
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 

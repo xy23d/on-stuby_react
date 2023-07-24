@@ -1,6 +1,7 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
 
+import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useLocation } from "react-router-dom";
 
@@ -61,7 +62,6 @@ describe('pages/Articles.js', () => {
     expect(PageTitle).toHaveBeenCalledWith({page_title: 'Articles'}, {});
     articles.map((article, index) => {
       expect(ArticleComponent).toHaveBeenCalledWith({
-        key: article.id,
         id: article.id,
         title: article.title
       }, {});
