@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import ArticleComponent from '../components/articles/Article';
-import PageTitle from '../components/common/PageTitle'
-import ArticlesService from '../services/ArticlesService'
-import addHistory from '../stores/history/actions'
+import PageTitle from '../components/common/PageTitle';
+import ArticlesService from '../services/ArticlesService';
+import addHistory from '../stores/history/actions';
 
 const Articles = (props) => {
   const location = useLocation();
@@ -21,8 +21,8 @@ const Articles = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const articles = await ArticlesService.get()
-        setArticles(articles)
+        const articles = await ArticlesService.get();
+        setArticles(articles);
       } catch (error) {
         console.error(`Error: ${error}`);
       }
@@ -34,26 +34,22 @@ const Articles = (props) => {
   return (
     <>
       <main>
-        <PageTitle page_title="Articles"></PageTitle>
+        <PageTitle page_title='Articles'></PageTitle>
 
-        <div className="w-full mt-6 px-16">
-          <div className="flex flex-wrap">
-            {
-              articles.map((article) => {
-                return (
-                  <div key={article.id} className="w-1/3 p-3">
-                    <ArticleComponent
-                      id={article.id}
-                      title={article.title} />
-                  </div>
-                );
-              })
-            }
+        <div className='w-full mt-6 px-16'>
+          <div className='flex flex-wrap'>
+            {articles.map((article) => {
+              return (
+                <div key={article.id} className='w-1/3 p-3'>
+                  <ArticleComponent id={article.id} title={article.title} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </main>
     </>
   );
-}
+};
 
-export default Articles
+export default Articles;

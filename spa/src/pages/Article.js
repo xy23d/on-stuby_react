@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import React, { useEffect, useState, useContext } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ArticlesContext } from "../contexts/Articles";
-import ArticleComponent from "../components/Article"
-import ArticlesService from '../services/ArticlesService'
-import addHistory from '../stores/history/actions'
+import { ArticlesContext } from '../contexts/Articles';
+import ArticleComponent from '../components/Article';
+import ArticlesService from '../services/ArticlesService';
+import addHistory from '../stores/history/actions';
 
-const Article = (props) => {
+const Article = () => {
   const { id } = useParams();
 
   const [article, setArticle] = useState(null);
@@ -22,7 +22,7 @@ const Article = (props) => {
     dispatch(addHistory(location.pathname));
   }, []);
 
-  useSelector(state => console.log(state.historyReducer.histories));
+  useSelector((state) => console.log(state.historyReducer.histories));
 
   useEffect(() => {
     if (articles?.[id]) {
@@ -34,11 +34,11 @@ const Article = (props) => {
 
           setArticle(article);
 
-          setArticles(prevArticles => ({
+          setArticles((prevArticles) => ({
             ...prevArticles,
             [id]: article,
           }));
-        } catch(error) {
+        } catch (error) {
           console.error(`Error: ${error}`);
         }
       };
@@ -47,15 +47,13 @@ const Article = (props) => {
     }
   }, []);
 
-  return (
-    article ?
+  return article ? (
     <main>
-      <div className="w-full mt-6 px-16" data-testid="debug">
-        <ArticleComponent article={article}/>
+      <div className='w-full mt-6 px-16' data-testid='debug'>
+        <ArticleComponent article={article} />
       </div>
     </main>
-    : null
-  );
-}
+  ) : null;
+};
 
-export default Article
+export default Article;

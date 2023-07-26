@@ -1,7 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
-import { Link } from "react-router-dom";
-import Article from "./Article";
+import Article from './Article';
 
 describe('spa/src/components/Article.jsx', () => {
   describe('render', () => {
@@ -11,7 +10,7 @@ describe('spa/src/components/Article.jsx', () => {
       title: faker.string.sample(10),
       author: faker.person.fullName(10),
       description: `${description_1}\n${description_2}`,
-    }
+    };
 
     beforeEach(() => {
       render(<Article article={article} />);

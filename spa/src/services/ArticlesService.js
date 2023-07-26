@@ -1,4 +1,4 @@
-import { HOST } from './FetchConfig'
+import { HOST } from './FetchConfig';
 
 const ArticlesService = {
   get: () => {
@@ -7,7 +7,7 @@ const ArticlesService = {
         const response = await fetch(`${HOST}/articles`);
         const data = await response.json();
         resolve(data);
-      } catch(error) {
+      } catch (error) {
         reject(error);
       }
     });
@@ -19,11 +19,11 @@ const ArticlesService = {
         const response = await fetch(`${HOST}/articles/${id}`);
         const data = await response.json();
         resolve(data);
-      } catch(error) {
+      } catch (error) {
         reject(error);
       }
     });
-  }
-}
+  },
+};
 
-export default ArticlesService
+export default ArticlesService;

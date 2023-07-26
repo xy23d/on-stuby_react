@@ -1,15 +1,15 @@
 import { act, render } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
 
-import React from 'react'
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
-import Articles from './Articles'
+import Articles from './Articles';
 import ArticleComponent from '../components/articles/Article';
-import PageTitle from '../components/common/PageTitle'
-import addHistory from '../stores/history/actions'
-import ArticlesService from '../services/ArticlesService'
+import PageTitle from '../components/common/PageTitle';
+import addHistory from '../stores/history/actions';
+import ArticlesService from '../services/ArticlesService';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -26,7 +26,6 @@ jest.mock('../components/common/PageTitle');
 jest.mock('../stores/history/actions');
 jest.mock('../services/ArticlesService');
 
-
 describe('pages/Articles.js', () => {
   const pathname = faker.string.sample(10);
 
@@ -36,17 +35,17 @@ describe('pages/Articles.js', () => {
   const articles = Array(3).map((_, index) => {
     return {
       id: faker.number.int(),
-      title: faker.string.sample(10)
-    }
+      title: faker.string.sample(10),
+    };
   });
 
   const addHistoryReturn = {
     type: 'ADD',
     payload: pathname,
-  }
+  };
 
   test('render', async () => {
-    useLocation.mockReturnValue({ pathname })
+    useLocation.mockReturnValue({ pathname });
     useDispatch.mockReturnValue(dispatch);
     addHistory.mockReturnValue(addHistoryReturn);
 
@@ -59,12 +58,15 @@ describe('pages/Articles.js', () => {
     expect(addHistory).toHaveBeenCalledWith(pathname);
     expect(dispatch).toHaveBeenCalledWith(addHistoryReturn);
     expect(ArticlesServiceGet).toHaveBeenCalledTimes(1);
-    expect(PageTitle).toHaveBeenCalledWith({page_title: 'Articles'}, {});
+    expect(PageTitle).toHaveBeenCalledWith({ page_title: 'Articles' }, {});
     articles.map((article, index) => {
-      expect(ArticleComponent).toHaveBeenCalledWith({
-        id: article.id,
-        title: article.title
-      }, {});
+      expect(ArticleComponent).toHaveBeenCalledWith(
+        {
+          id: article.id,
+          title: article.title,
+        },
+        {},
+      );
     });
   });
 });

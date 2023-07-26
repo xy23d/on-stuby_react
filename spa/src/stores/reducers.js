@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import historyReducer from './history/reducer'
+import { combineReducers } from 'redux';
+import historyReducer from './history/reducer';
 
 const reducers = combineReducers({
-  historyReducer
-})
+  historyReducer,
+});
 
-export default reducers
+export default reducers;

@@ -1,15 +1,15 @@
 import { act, render } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
 
-import React, { useContext } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import React, { useContext } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Article from './Article';
-import ArticleComponent from "../components/Article"
+import ArticleComponent from '../components/Article';
 import { ArticlesContext } from '../contexts/Articles';
-import ArticlesService from '../services/ArticlesService'
-import addHistory from '../stores/history/actions'
+import ArticlesService from '../services/ArticlesService';
+import addHistory from '../stores/history/actions';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
@@ -25,14 +25,14 @@ jest.mock('react-router-dom', () => ({
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn(),
-  useSelector: jest.fn()
+  useSelector: jest.fn(),
 }));
 
 jest.mock('../components/Article');
 
 jest.mock('../services/ArticlesService');
 
-jest.mock( '../stores/history/actions', () => {
+jest.mock('../stores/history/actions', () => {
   return jest.fn();
 });
 
@@ -47,18 +47,18 @@ describe('pages/Article.js', () => {
 
   const article = {
     id,
-    title
+    title,
   };
 
   const addHistoryReturn = {
     type: 'ADD',
     payload: pathname,
-  }
+  };
 
   beforeEach(() => {
     useParams.mockReturnValue({ id });
 
-    useLocation.mockReturnValue({ pathname })
+    useLocation.mockReturnValue({ pathname });
 
     useDispatch.mockReturnValue(dispatch);
 
@@ -70,7 +70,7 @@ describe('pages/Article.js', () => {
   test('Context no exists', async () => {
     useContext.mockReturnValue({
       articles: [],
-      setArticles
+      setArticles,
     });
 
     await act(async () => {
@@ -82,14 +82,14 @@ describe('pages/Article.js', () => {
     expect(dispatch).toHaveBeenCalledWith(addHistoryReturn);
     expect(useSelector).toHaveBeenCalledTimes(2);
     expect(ArticlesServiceShow).toHaveBeenCalledWith(id);
-    expect(ArticleComponent).toHaveBeenCalledWith({article}, {});
+    expect(ArticleComponent).toHaveBeenCalledWith({ article }, {});
     expect(setArticles).toHaveBeenCalledTimes(1);
   });
 
   test('Context exists', async () => {
     useContext.mockReturnValue({
-      articles: {[id]: article},
-      setArticles
+      articles: { [id]: article },
+      setArticles,
     });
 
     await act(async () => {
@@ -101,7 +101,7 @@ describe('pages/Article.js', () => {
     expect(dispatch).toHaveBeenCalledWith(addHistoryReturn);
     expect(useSelector).toHaveBeenCalledTimes(2);
     expect(ArticlesServiceShow).toHaveBeenCalledTimes(0);
-    expect(ArticleComponent).toHaveBeenCalledWith({article}, {});
+    expect(ArticleComponent).toHaveBeenCalledWith({ article }, {});
     expect(setArticles).toHaveBeenCalledTimes(0);
   });
 });

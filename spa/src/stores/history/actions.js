@@ -7,4 +7,4 @@ const addHistory = (url) => {
   };
 };
 
-export default addHistory
+export default addHistory;
